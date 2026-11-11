@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Коллоквиум по матанализу (1 семестр) — ответы на все вопросы</title>
+<style>
+  :root{ --ink:#16202b; --acc:#0b4f8a; --line:#c9d4de; --bg:#f4f7fa; --card:#ffffff; --hl:#eef6ff; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",Roboto,Arial,sans-serif}
+  header{background:linear-gradient(135deg,#0b4f8a,#1273c0);color:#fff;padding:28px 16px;text-align:center}
+  header h1{margin:0 0 6px;font-size:26px}
+  header p{margin:0;opacity:.9}
+  nav{position:sticky;top:0;background:#0d3d6b;z-index:5;display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:8px}
+  nav a{color:#fff;text-decoration:none;padding:6px 12px;border-radius:6px;font-size:14px}
+  nav a:hover{background:#1273c0}
+  main{max-width:1080px;margin:0 auto;padding:18px 14px 60px}
+  h2{color:var(--acc);border-bottom:3px solid var(--acc);padding-bottom:6px;margin-top:42px}
+  h3{color:var(--acc);margin:26px 0 8px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:10px 0;padding:10px 16px}
+  summary{cursor:pointer;font-weight:600;color:var(--acc);outline:none}
+  summary:hover{color:#1273c0}
+  details[open]{box-shadow:0 2px 8px rgba(13,61,107,.12)}
+  .def{background:var(--hl);border-left:4px solid #2b7cd3;padding:8px 12px;margin:10px 0;border-radius:0 6px 6px 0}
+  .proof{background:#f2faf2;border-left:4px solid #2e8b57;padding:8px 12px;margin:10px 0;border-radius:0 6px 6px 0}
+  .warn{background:#fff6ec;border-left:4px solid #e67e22;padding:8px 12px;margin:10px 0;border-radius:0 6px 6px 0}
+  table{border-collapse:collapse;width:100%;margin:12px 0;background:#fff;font-size:14px}
+  th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+  th{background:#dce9f5;color:#0d3d6b}
+  td .w{display:block;font-style:italic;color:#445;font-size:12.5px;margin-top:4px}
+  .sym{font-family:"Cambria Math","STIX Two Math",Georgia,serif}
+  figure{margin:14px 0;text-align:center}
+  figure svg{background:#fff;border:1px solid var(--line);border-radius:8px;max-width:100%}
+  figcaption{font-size:13px;color:#445;margin-top:4px}
+  .top{text-align:right;margin:8px 0}
+  .top a{color:var(--acc);font-size:13px;text-decoration:none}
+  footer{text-align:center;color:#678;padding:20px;font-size:13px}
+  ul,ol{margin:8px 0}
+  li{margin:4px 0}
+</style>
+</head>
+<body>
+<header id="top">
+  <h1>Коллоквиум по математическому анализу — 1 семестр</h1>
+  <p>МП-10…15, 12а, 15а · Ответы на все 37 теоретических вопросов, допуск (24 определения предела) и упражнения</p>
+</header>
+
+<nav>
+  <a href="#shpora">Шпаргалка</a>
+  <a href="#theory">Теория 1–37</a>
+  <a href="#dopusk">Допуск: 24 предела</a>
+  <a href="#pics">Картинки</a>
+  <a href="#tasks">Упражнения</a>
+</nav>
+
+<main>
+
+<!-- ==================== ШПАРГАЛКА ==================== -->
+<section id="shpora">
+<h2>0. Шпаргалка: предел функции — Коши и Гейне (все 24 случая)</h2>
+<div class="def">
+  <b>Коши:</b> <span class="sym">∀ε&gt;0 ∃δ&gt;0 (или ∃C&gt;0) ∀x: [условие на x] ⇒ [условие на f(x)]</span><br>
+  <b>Гейне:</b> <span class="sym">∀(xₙ): [xₙ стремится туда же, куда x] ⇒ f(xₙ) → [тот же предел]</span>
+</div>
+
+<h3>1. Куда стремится x</h3>
+<table>
+<tr><th>x →</th><th>Коши (условие на x)</th><th>Гейне (условие на последовательность)</th></tr>
+<tr><td class="sym">x₀</td><td class="sym">0 &lt; |x−x₀| &lt; δ</td><td class="sym">xₙ→x₀, xₙ≠x₀</td></tr>
+<tr><td class="sym">x₀+0</td><td class="sym">x₀ &lt; x &lt; x₀+δ</td><td class="sym">xₙ→x₀, xₙ&gt;x₀</td></tr>
+<tr><td class="sym">x₀−0</td><td class="sym">x₀−δ &lt; x &lt; x₀</td><td class="sym">xₙ→x₀, xₙ&lt;x₀</td></tr>
+<tr><
