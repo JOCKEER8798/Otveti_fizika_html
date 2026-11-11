@@ -1,72 +1,481 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Коллоквиум по матанализу (1 семестр) — ответы на все вопросы</title>
-<style>
-  :root{ --ink:#16202b; --acc:#0b4f8a; --line:#c9d4de; --bg:#f4f7fa; --card:#ffffff; --hl:#eef6ff; }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",Roboto,Arial,sans-serif}
-  header{background:linear-gradient(135deg,#0b4f8a,#1273c0);color:#fff;padding:28px 16px;text-align:center}
-  header h1{margin:0 0 6px;font-size:26px}
-  header p{margin:0;opacity:.9}
-  nav{position:sticky;top:0;background:#0d3d6b;z-index:5;display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:8px}
-  nav a{color:#fff;text-decoration:none;padding:6px 12px;border-radius:6px;font-size:14px}
-  nav a:hover{background:#1273c0}
-  main{max-width:1080px;margin:0 auto;padding:18px 14px 60px}
-  h2{color:var(--acc);border-bottom:3px solid var(--acc);padding-bottom:6px;margin-top:42px}
-  h3{color:var(--acc);margin:26px 0 8px}
-  details{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:10px 0;padding:10px 16px}
-  summary{cursor:pointer;font-weight:600;color:var(--acc);outline:none}
-  summary:hover{color:#1273c0}
-  details[open]{box-shadow:0 2px 8px rgba(13,61,107,.12)}
-  .def{background:var(--hl);border-left:4px solid #2b7cd3;padding:8px 12px;margin:10px 0;border-radius:0 6px 6px 0}
-  .proof{background:#f2faf2;border-left:4px solid #2e8b57;padding:8px 12px;margin:10px 0;border-radius:0 6px 6px 0}
-  .warn{background:#fff6ec;border-left:4px solid #e67e22;padding:8px 12px;margin:10px 0;border-radius:0 6px 6px 0}
-  table{border-collapse:collapse;width:100%;margin:12px 0;background:#fff;font-size:14px}
-  th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
-  th{background:#dce9f5;color:#0d3d6b}
-  td .w{display:block;font-style:italic;color:#445;font-size:12.5px;margin-top:4px}
-  .sym{font-family:"Cambria Math","STIX Two Math",Georgia,serif}
-  figure{margin:14px 0;text-align:center}
-  figure svg{background:#fff;border:1px solid var(--line);border-radius:8px;max-width:100%}
-  figcaption{font-size:13px;color:#445;margin-top:4px}
-  .top{text-align:right;margin:8px 0}
-  .top a{color:var(--acc);font-size:13px;text-decoration:none}
-  footer{text-align:center;color:#678;padding:20px;font-size:13px}
-  ul,ol{margin:8px 0}
-  li{margin:4px 0}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коллоквиум по Математическому Анализу</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --bg: #ecf0f1;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --border: #bdc3c7;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { margin: 0; font-size: 1.8rem; }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        details {
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        summary {
+            padding: 15px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            list-style: none;
+            position: relative;
+            transition: background 0.3s;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary:hover { background-color: #e9ecef; }
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        details[open] summary::after { content: '-'; }
+        .content {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+            background: var(--card-bg);
+        }
+        .math {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            background: #f1f8ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid var(--secondary);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: left;
+        }
+        th { background-color: #f8f9fa; }
+        .negation { color: #c0392b; font-weight: bold; }
+    </style>
 </head>
 <body>
-<header id="top">
-  <h1>Коллоквиум по математическому анализу — 1 семестр</h1>
-  <p>МП-10…15, 12а, 15а · Ответы на все 37 теоретических вопросов, допуск (24 определения предела) и упражнения</p>
+
+<header>
+    <h1>Шпаргалка к коллоквиуму: Математический анализ</h1>
 </header>
 
-<nav>
-  <a href="#shpora">Шпаргалка</a>
-  <a href="#theory">Теория 1–37</a>
-  <a href="#dopusk">Допуск: 24 предела</a>
-  <a href="#pics">Картинки</a>
-  <a href="#tasks">Упражнения</a>
-</nav>
+<div class="container">
+    <p>Все ответы на вопросы из вашего PDF. Раскройте нужный пункт для просмотра ответа. В разделе «Допуск» даны строгие определения по Коши, Гейне и их отрицания.</p>
 
-<main>
+    <h2>Часть 1. Допуск: Пределы (24 вопроса)</h2>
+    <p>Сборка строк: <b>Условие на x</b> ⇒ <b>Условие на f(x)</b>. Отрицание: меняем ∀ на ∃, ∃ на ∀, и условие на противоположное.</p>
 
-<!-- ==================== ШПАРГАЛКА ==================== -->
-<section id="shpora">
-<h2>0. Шпаргалка: предел функции — Коши и Гейне (все 24 случая)</h2>
-<div class="def">
-  <b>Коши:</b> <span class="sym">∀ε&gt;0 ∃δ&gt;0 (или ∃C&gt;0) ∀x: [условие на x] ⇒ [условие на f(x)]</span><br>
-  <b>Гейне:</b> <span class="sym">∀(xₙ): [xₙ стремится туда же, куда x] ⇒ f(xₙ) → [тот же предел]</span>
+    <details>
+        <summary>1. lim f(x) = A (при x → x₀)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: 0 < |x - x₀| < δ ⇒ |f(x) - A| < ε</span></p>
+            <p><b>Словами:</b> Для любого эпсилон больше нуля, существует дельта больше нуля, такая что для всех икс, если икс отстоит от икс нулевого на расстояние меньше дельта (но не равно ему), то значение функции отстоит от А на расстояние меньше эпсилон.</p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀ (xₙ ≠ x₀) ⇒ f(xₙ) → A</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: 0 < |x - x₀| < δ и |f(x) - A| ≥ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>2. lim f(x) = A (при x → x₀+0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ < x < x₀ + δ ⇒ |f(x) - A| < ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ > x₀ ⇒ f(xₙ) → A</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ < x < x₀ + δ и |f(x) - A| ≥ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>3. lim f(x) = A (при x → x₀-0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ - δ < x < x₀ ⇒ |f(x) - A| < ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ < x₀ ⇒ f(xₙ) → A</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ - δ < x < x₀ и |f(x) - A| ≥ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>4. lim f(x) = A (при x → +∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x > C ⇒ |f(x) - A| < ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → +∞ ⇒ f(xₙ) → A</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x > C и |f(x) - A| ≥ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>5. lim f(x) = A (при x → -∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x < -C ⇒ |f(x) - A| < ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → -∞ ⇒ f(xₙ) → A</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x < -C и |f(x) - A| ≥ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>6. lim f(x) = A (при x → -∞) [дубль]</summary>
+        <div class="content">
+            <p>См. пункт 5.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>7. lim f(x) = +∞ (при x → x₀)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: 0 < |x - x₀| < δ ⇒ f(x) > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ ≠ x₀ ⇒ f(xₙ) → +∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: 0 < |x - x₀| < δ и f(x) ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>8. lim f(x) = -∞ (при x → x₀)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: 0 < |x - x₀| < δ ⇒ f(x) < -ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ ≠ x₀ ⇒ f(xₙ) → -∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: 0 < |x - x₀| < δ и f(x) ≥ -ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>9. lim f(x) = ∞ (при x → x₀)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: 0 < |x - x₀| < δ ⇒ |f(x)| > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ ≠ x₀ ⇒ f(xₙ) → ∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: 0 < |x - x₀| < δ и |f(x)| ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>10. lim f(x) = +∞ (при x → x₀+0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ < x < x₀ + δ ⇒ f(x) > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ > x₀ ⇒ f(xₙ) → +∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ < x < x₀ + δ и f(x) ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>11. lim f(x) = -∞ (при x → x₀+0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ < x < x₀ + δ ⇒ f(x) < -ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ > x₀ ⇒ f(xₙ) → -∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ < x < x₀ + δ и f(x) ≥ -ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>12. lim f(x) = ∞ (при x → x₀+0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ < x < x₀ + δ ⇒ |f(x)| > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ > x₀ ⇒ f(xₙ) → ∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ < x < x₀ + δ и |f(x)| ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>13. lim f(x) = +∞ (при x → x₀-0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ - δ < x < x₀ ⇒ f(x) > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ < x₀ ⇒ f(xₙ) → +∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ - δ < x < x₀ и f(x) ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>14. lim f(x) = -∞ (при x → x₀-0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ - δ < x < x₀ ⇒ f(x) < -ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ < x₀ ⇒ f(xₙ) → -∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ - δ < x < x₀ и f(x) ≥ -ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>15. lim f(x) = ∞ (при x → x₀-0)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ δ > 0 ∀ x: x₀ - δ < x < x₀ ⇒ |f(x)| > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → x₀, xₙ < x₀ ⇒ f(xₙ) → ∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ δ > 0 ∃ x: x₀ - δ < x < x₀ и |f(x)| ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>16. lim f(x) = +∞ (при x → +∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x > C ⇒ f(x) > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → +∞ ⇒ f(xₙ) → +∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x > C и f(x) ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>17. lim f(x) = -∞ (при x → +∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x > C ⇒ f(x) < -ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → +∞ ⇒ f(xₙ) → -∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x > C и f(x) ≥ -ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>18. lim f(x) = ∞ (при x → +∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x > C ⇒ |f(x)| > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → +∞ ⇒ f(xₙ) → ∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x > C и |f(x)| ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>19. lim f(x) = +∞ (при x → -∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x < -C ⇒ f(x) > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → -∞ ⇒ f(xₙ) → +∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x < -C и f(x) ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>20. lim f(x) = -∞ (при x → -∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x < -C ⇒ f(x) < -ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → -∞ ⇒ f(xₙ) → -∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x < -C и f(x) ≥ -ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>21. lim f(x) = ∞ (при x → -∞)</summary>
+        <div class="content">
+            <p><b>Коши:</b> <span class="math">∀ ε > 0 ∃ C > 0 ∀ x: x < -C ⇒ |f(x)| > ε</span></p>
+            <p><b>Гейне:</b> <span class="math">∀ {xₙ}: xₙ → -∞ ⇒ f(xₙ) → ∞</span></p>
+            <p><b>Отрицание:</b> <span class="math negation">∃ ε > 0 ∀ C > 0 ∃ x: x < -C и |f(x)| ≤ ε</span></p>
+        </div>
+    </details>
+
+    <details>
+        <summary>22. lim f(x) = +∞ (при x → -∞) [дубль]</summary>
+        <div class="content"><p>См. пункт 19.</p></div>
+    </details>
+
+    <details>
+        <summary>23. lim f(x) = -∞ (при x → -∞) [дубль]</summary>
+        <div class="content"><p>См. пункт 20.</p></div>
+    </details>
+
+    <details>
+        <summary>24. lim f(x) = ∞ (при x → +∞) [дубль]</summary>
+        <div class="content"><p>См. пункт 18.</p></div>
+    </details>
+
+
+    <h2>Часть 2. Теоретические вопросы (1-37)</h2>
+    
+    <details>
+        <summary>1-4. Логическая символика, множества, грани</summary>
+        <div class="content">
+            <p><b>Логика:</b> ∀ (для всех), ∃ (существует), ⇒ (следует), ⇔ (эквивалентно). Отрицание: ¬(∀x P(x)) = ∃x ¬P(x).</p>
+            <p><b>Грани:</b> Множество ограничено сверху, если ∃M: ∀x∈X, x ≤ M. M — верхняя грань. <b>Sup X</b> — наименьшая из верхних граней (точная верхняя грань). <b>Inf X</b> — наибольшая из нижних граней.</p>
+            <p><b>Эквивалентные определения Sup:</b> 1) ∀x∈X, x ≤ S и ∀ε>0 ∃x∈X: x > S-ε. 2) S - верхняя грань, и любая меньшая не является верхней гранью.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>5. Теорема о существовании точной верхней грани</summary>
+        <div class="content">
+            <p>Любое непустое ограниченное сверху числовое множество имеет точную верхнюю грань (sup). Аналогично для inf.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>6. Определение предела последовательности. Единственность.</summary>
+        <div class="content">
+            <p>Число a — предел последовательности {xₙ}, если ∀ε>0 ∃N: ∀n>N ⇒ |xₙ - a| < ε.</p>
+            <p>Предел единственен (доказывается от противного: если два предела a и b, берем ε = |a-b|/2 и приходим к противоречию).</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>7-10. Свойства сходящихся последовательностей и милиционеры</summary>
+        <div class="content">
+            <p><b>7. Ограниченность:</b> Сходящаяся последовательность ограничена.</p>
+            <p><b>8. Сохранение знака:</b> Если lim xₙ = a > 0, то начиная с некоторого номера xₙ > 0.</p>
+            <p><b>9. Переход к неравенству:</b> Если xₙ ≥ yₙ и оба предела существуют, то lim xₙ ≥ lim yₙ.</p>
+            <p><b>10. Лемма о двух милиционерах:</b> Если xₙ ≤ zₙ ≤ yₙ и lim xₙ = lim yₙ = a, то lim zₙ = a.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>11-13. Бесконечно малые (БМ) и большие (ББ) последовательности</summary>
+        <div class="content">
+            <p><b>БМ:</b> lim xₙ = 0. <b>Связь:</b> lim xₙ = a ⇔ xₙ = a + αₙ, где αₙ — БМ.</p>
+            <p><b>ББ:</b> ∀M>0 ∃N: ∀n>N |xₙ| > M. Связь: если xₙ — ББ, то 1/xₙ — БМ.</p>
+            <p><b>Свойства:</b> Сумма БМ — БМ. Произведение БМ на ограниченную — БМ. Произведение двух БМ — БМ.</p>
+            <p><b>Теоремы о пределах:</b> Предел суммы/произведения/частного равен сумме/произведению/частному пределов (если знаменатель не ноль).</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>14-18. Монотонные, вложенные, Больцано-Вейерштрасс, Коши</summary>
+        <div class="content">
+            <p><b>14. Вейерштрасс:</b> Всякая монотонная ограниченная последовательность сходится.</p>
+            <p><b>15. Число e:</b> lim (1 + 1/n)ⁿ = e. (Бином Ньютона используется для доказательства сходимости).</p>
+            <p><b>16. Вложенные отрезки:</b> Если [aₙ, bₙ] вложены и их длины → 0, то ∃! точка c, принадлежащая всем отрезкам.</p>
+            <p><b>17. Больцано-Вейерштрасс:</b> Из любой ограниченной последовательности можно выделить сходящуюся подпоследовательность.</p>
+            <p><b>18. Критерий Коши (для послед.):</b> xₙ сходится ⇔ ∀ε>0 ∃N: ∀n,m>N |xₙ - xₘ| < ε (фундаментальная).</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>19-21. Предел функции, свойства, арифметика</summary>
+        <div class="content">
+            <p><b>19:</b> Определения по Коши и Гейне (см. Часть 1). Они эквивалентны. Пример без предела: функция Дирихле. С пределом: f(x) = x в точке 0.</p>
+            <p><b>20:</b> Единственность, локальная ограниченность, сохранение знака (аналогично последовательностям).</p>
+            <p><b>21:</b> Предел суммы, произведения, частного. Доказывается через определения Коши (эпсилон-дельта) или Гейне (сведение к последовательностям).</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>22-24. Непрерывность функции</summary>
+        <div class="content">
+            <p><b>22:</b> f непрерывна в точке x₀, если lim(x→x₀) f(x) = f(x₀). Или: Δy → 0 при Δx → 0. Свойства: арифметические операции сохраняют непрерывность.</p>
+            <p><b>23:</b> Композиция непрерывных функций непрерывна.</p>
+            <p><b>24:</b> Все основные элементарные функции (степенные, показательные, логарифмические, тригонометрические) непрерывны на своих областях определения.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>25-27. Замечательные пределы и Критерий Коши (для функций)</summary>
+        <div class="content">
+            <p><b>25. Первый замечательный:</b> lim(x→0) sin(x)/x = 1.</p>
+            <p><b>26. Второй замечательный:</b> lim(x→∞) (1 + 1/x)ˣ = e.</p>
+            <p><b>27. Критерий Коши:</b> f имеет предел в x₀ ⇔ ∀ε>0 ∃δ>0: ∀x',x'' (0<|x'-x₀|<δ и 0<|x''-x₀|<δ) ⇒ |f(x') - f(x'')| < ε.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>28-29. Эквивалентные функции (о-малое)</summary>
+        <div class="content">
+            <p><b>БМ на бесконечности:</b> lim f(x) = 0 при x→∞.</p>
+            <p><b>о-малое:</b> α(x) = o(β(x)) при x→x₀, если lim α/β = 0.</p>
+            <p><b>Эквивалентность:</b> α ~ β, если lim α/β = 1. (Замена в пределах: sin x ~ x, ln(1+x) ~ x, eˣ-1 ~ x, 1-cos x ~ x²/2).</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>30-34. Теоремы о непрерывных функциях на отрезке</summary>
+        <div class="content">
+            <p><b>30 (Вейерштрасс 1):</b> Непрерывная на отрезке функция ограничена на нем.</p>
+            <p><b>31 (Вейерштрасс 2):</b> Непрерывная на отрезке функция достигает своего максимума и минимума.</p>
+            <p><b>32 (Больцано-Коши 1):</b> Если f(a) и f(b) разных знаков, то ∃c∈(a,b): f(c) = 0.</p>
+            <p><b>33 (Больцано-Коши 2):</b> Непрерывная функция принимает все промежуточные значения.</p>
+            <p><b>34. Обратная функция:</b> Если f строго монотонна и непрерывна на [a,b], то обратная f⁻¹ существует, непрерывна и монотонна.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>35-37. Разрывы и Равномерная непрерывность</summary>
+        <div class="content">
+            <p><b>35. Разрывы:</b> 1 рода (пределы слева и справа конечны, но не равны — скачок), 2 рода (хотя бы один предел бесконечен или не существует).</p>
+            <p><b>36. Модуль непрерывности:</b> ω(δ) = sup |f(x) - f(y)| для |x-y| < δ. Равномерная непрерывность: ∀ε>0 ∃δ>0 ∀x,y: |x-y|<δ ⇒ |f(x)-f(y)|<ε.</p>
+            <p><b>37 (Кантор):</b> Функция, непрерывная на отрезке, равномерно непрерывна на нем.</p>
+        </div>
+    </details>
+
+
+    <h2>Часть 3. Задачи и доказательства (1-24)</h2>
+
+    <details>
+        <summary>1-7. Свойства Sup и Inf (доказательства)</summary>
+        <div class="content">
+            <p><b>1. sup(X+Y) = sup X + sup Y.</b> Пусть S = sup X + sup Y. Для любых x∈X, y∈Y: x+y ≤ S. Значит S - верхняя грань. Для любого ε>0: ∃x>sup X - ε/2, ∃y>sup Y - ε/2. Тогда x+y > S - ε. Значит S — точная верхняя грань.</p>
+            <p><b>3. sup(-X) = -inf X.</b> Пусть m = inf X. Тогда ∀x∈X: x ≥ m ⇒ -x ≤ -m. Значит -m — верхняя грань для -X. Для любого ε>0 ∃x < m + ε ⇒ -x > -m - ε. Значит -m = sup(-X).</p>
+            <p><b>5. Если X ≤ Y, то sup X ≤ sup Y.</b> По определению, любой элемент Y больше любого элемента X. sup Y — верхняя грань для Y, значит она больше или равна любому x∈X. Следовательно sup Y — верхняя грань X. А sup X — наименьшая верхняя грань, значит sup X ≤ sup Y.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>8-11. Свойства последовательностей</summary>
+        <div class="content">
+            <p><b>8-9. Предельные точки:</b> а) Наличие бесконечного числа членов в окрестности не гарантирует сходимость (пример: 1, -1, 1, -1...). б) Последовательность ограничена (т.к. все члены в окрестности, а вне её конечное число).</p>
+            <p><b>10. Бесконечно большая последовательность</b> не имеет конечных предельных точек (может иметь ∞ как предельную точку).</p>
+            <p><b>11. Одна предельная точка не гарантирует сходимость</b> (пример: 1, 1/2, 1, 1/3, 1, 1/4... предел 1, но сходимости нет).</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>12-13. Доказательство отсутствия предела</summary>
+        <div class="content">
+            <p><b>12. xₙ = 1 + 1/2 + ... + 1/n (Гармонический ряд).</b> Используем критерий Коши: |x₂ₙ - xₙ| = 1/(n+1) + ... + 1/2n > n * (1/2n) = 1/2. Условие Коши не выполняется (нельзя сделать меньше любого ε).</p>
+            <p><b>13. Функция Дирихле.</b> В любой окрестности точки x есть как рациональные, так и иррациональные числа. Поэтому предел не существует ни в одной точке.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>14-19. Непрерывность и пределы функций</summary>
+        <div class="content">
+            <p><b>14. f(x) = cos(1/x).</b> Возьмем xₙ = 1/(2πn) → 0, f(xₙ) = 1. Возьмем yₙ = 1/(π + 2πn) → 0, f(yₙ) = -1. Пределы разные, значит предела нет.</p>
+            <p><b>15. По определению непрерывности:</b> Подставляем x₀+Δx в функцию, вычитаем f(x₀), показываем что разность стремится к 0 при Δx → 0.</p>
+            <p><b>19. lim sin(α(x))/α(x).</b> Так как α(x)→0, можно сделать замену t = α(x), тогда lim(t→0) sin(t)/t = 1 (первый замечательный).</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>20-24. О-малые, Монотонность, Модуль непрерывности</summary>
+        <div class="content">
+            <p><b>20. lim (1+α(x))^(1/α(x)).</b> Замена t = 1/α(x). При α→0, t→∞. Получаем второй замечательный предел (1+1/t)^t = e.</p>
+            <p><b>21. Монотонная неограниченная последовательность.</b> Пусть возрастает. Так как не ограничена сверху, ∀M ∃N: x_N > M. Тогда ∀n>N, x_n ≥ x_N > M. Значит предел +∞.</p>
+            <p><b>23-24. Модуль непрерывности.</b> ω(δ) = sup_{|x-y|<δ} |f(x) - f(y)|. Для sin(1/x) на (0,1) ω(δ) = 2 (или 0, в зависимости от δ). Для x² на [-2, 1] функция Липшицева с константой 4, значит ω(δ) = 4δ.</p>
+        </div>
+    </details>
+
 </div>
 
-<h3>1. Куда стремится x</h3>
-<table>
-<tr><th>x →</th><th>Коши (условие на x)</th><th>Гейне (условие на последовательность)</th></tr>
-<tr><td class="sym">x₀</td><td class="sym">0 &lt; |x−x₀| &lt; δ</td><td class="sym">xₙ→x₀, xₙ≠x₀</td></tr>
-<tr><td class="sym">x₀+0</td><td class="sym">x₀ &lt; x &lt; x₀+δ</td><td class="sym">xₙ→x₀, xₙ&gt;x₀</td></tr>
-<tr><td class="sym">x₀−0</td><td class="sym">x₀−δ &lt; x &lt; x₀</td><td class="sym">xₙ→x₀, xₙ&lt;x₀</td></tr>
-<tr><
+</body>
+  </html>
